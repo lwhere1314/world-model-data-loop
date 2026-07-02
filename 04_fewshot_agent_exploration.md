@@ -1,6 +1,6 @@
 # 04 Few-shot Agent Exploration
 
-这里是整个方案最重要的部分：如何让 agent 根据人给的 few-shot 做“类似人的探索”。
+这一部分回答一个实际问题：agent 不能只随机游走，探索路径需要像人一样有目的。
 
 ## 为什么不能纯随机探索
 
@@ -13,7 +13,7 @@
 - 没有验证世界状态；
 - 动作路径不像真实 embodied agent。
 
-真正有价值的探索像人一样：
+更有价值的探索一般长这样：
 
 ```text
 先观察目标
@@ -52,7 +52,7 @@ flowchart TD
   F -- "Yes" --> H["Score + curate"]
 ```
 
-## 类似人的探索策略
+## 探索策略
 
 ### 1. 建立目标记忆
 
@@ -100,7 +100,7 @@ flowchart TD
 
 ### 5. 主动寻找反证
 
-类似人的 evaluator 不只找支持证据，也找反证：
+好的 evaluator 不只找支持证据，也要找反证：
 
 - 字是不是变了；
 - 门窗是不是换位置了；
@@ -182,4 +182,4 @@ Evaluator 不直接相信模型输出，要像人一样比对证据：
    - 是否动作过度重复。
 5. 把通过的 schedule 送入自动采集。
 
-这就是“few-shot guided human-like exploration”的第一阶段。
+这就是第一版 few-shot guided exploration：先用少量人类例子定方向，再让 agent 扩规模。

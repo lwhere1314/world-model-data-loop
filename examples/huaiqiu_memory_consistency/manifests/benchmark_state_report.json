@@ -1,0 +1,125 @@
+{
+  "num_protocols": 10,
+  "num_2s_action_lists": 10,
+  "num_valid_2s_action_lists": 10,
+  "num_memory_stress_mcts_protocols": 10,
+  "num_matrix_action_csv": 10,
+  "num_matrix_prompt_injection_prompts": 10,
+  "num_matrix_prompt_injection_manifest_rows": 10,
+  "num_valid_matrix_prompt_injection_rows": 10,
+  "num_matrix_prompt_injection_videos": 10,
+  "num_matrix_prompt_injection_postprocess_rows": 10,
+  "matrix_prompt_injection_ready": 10,
+  "num_shared_prompts": 10,
+  "num_genie3_protocols": 10,
+  "num_genie3_collection_queue_rows": 10,
+  "num_valid_genie3_collection_queue_rows": 10,
+  "has_genie3_action_timer": true,
+  "has_genie3_video_ingest_helper": true,
+  "has_genie3_video_candidate_finder": true,
+  "has_genie3_next_run_assistant": true,
+  "genie3_browser_readiness_status": "google_signin_tab_present",
+  "genie3_browser_readiness_next_action": "finish_google_login_or_open_project_genie",
+  "num_matrix_videos": 10,
+  "num_genie3_videos": 0,
+  "num_genie3_notes": 10,
+  "num_genie3_replay_snippets": 10,
+  "matrix_ready": 10,
+  "genie3_missing": 10,
+  "paired_need_genie3": 10,
+  "num_label_tasks": 20,
+  "num_frame_label_sheets": 20,
+  "num_segment_label_sheets": 20,
+  "num_trajectory_label_sheets": 20,
+  "num_human_label_summary_rows": 20,
+  "num_paired_metric_rows": 10,
+  "num_auto_label_requests": 20,
+  "num_auto_label_ready_requests": 10,
+  "objective_complete": false,
+  "blocking_gap": "Genie3 MCTS videos are not collected yet.",
+  "checks": {
+    "has_complete_readme_and_plan": true,
+    "has_10_protocols": true,
+    "has_10_2s_action_lists": true,
+    "all_action_lists_are_36x2s": true,
+    "mcts_protocols_match_memory_stress_constraints": true,
+    "has_10_matrix_action_csv": true,
+    "has_10_matrix_prompt_injection_prompts": true,
+    "has_10_matrix_prompt_injection_videos": true,
+    "matrix_prompt_injection_10_ready": true,
+    "has_10_shared_prompts": true,
+    "has_10_genie3_protocols": true,
+    "has_10_genie3_collection_queue_rows": true,
+    "has_manual_genie3_collection_helpers": true,
+    "has_10_matrix_videos": true,
+    "matrix_10_ready": true,
+    "has_10_genie3_collection_packs": true,
+    "has_20_human_label_tasks": true,
+    "has_20_human_label_summary_rows": true,
+    "has_paired_metric_table_for_10_protocols": true,
+    "has_auto_label_requests_for_ready_matrix_runs": true,
+    "genie3_mcts_videos_collected": false
+  },
+  "goal_audit": [
+    {
+      "requirement": "complete_readme_and_plan",
+      "status": "proved",
+      "evidence": "README.md; COMPLETE_DATA_PLAN.md; BENCHMARK_DASHBOARD.md; DELIVERABLE_AUDIT.md; GENIE3_COLLECTION_RUNBOOK.md",
+      "notes": "Complete entry docs and delivery audit exist."
+    },
+    {
+      "requirement": "huaiqiu_2s_action_lists",
+      "status": "proved",
+      "evidence": "action_lists/*_2s_action_list.csv",
+      "notes": "10/10 lists have 36 continuous 2s steps."
+    },
+    {
+      "requirement": "mcts_10_memory_stress_protocols",
+      "status": "proved",
+      "evidence": "manifests/mcts_action_manifest.csv",
+      "notes": "10/10 protocols meet duration, offscreen, revisit, and checkpoint constraints."
+    },
+    {
+      "requirement": "matrix_game3_prompt_injection_branch",
+      "status": "proved",
+      "evidence": "matrix_game3_prompt_injected/; manifests/matrix_prompt_injection_manifest.csv",
+      "notes": "10/10 prompt-injected schedules are valid."
+    },
+    {
+      "requirement": "matrix_game3_prompt_injection_rollouts",
+      "status": "proved",
+      "evidence": "runs/*/matrix_prompt_injected/video.mp4; manifests/matrix_prompt_injected_postprocess_index.csv",
+      "notes": "10/10 Matrix prompt-injected videos passed initial quality gate."
+    },
+    {
+      "requirement": "matrix_game3_synthetic_rollouts",
+      "status": "proved",
+      "evidence": "runs/*/matrix_game3/video.mp4; manifests/matrix_game3_postprocess_index.csv",
+      "notes": "10/10 Matrix videos passed initial quality gate."
+    },
+    {
+      "requirement": "genie3_same_effect_collection_package",
+      "status": "proved",
+      "evidence": "genie3_protocols/; runs/*/genie3/notes.md; runs/*/genie3/browser_replay_snippet.mjs; manifests/genie3_collection_queue.csv",
+      "notes": "10/10 Genie3 collection queue rows have required assets."
+    },
+    {
+      "requirement": "manual_genie3_collection_helpers",
+      "status": "proved",
+      "evidence": "scripts/prepare_next_genie3_collection.py; scripts/run_genie3_action_timer.py; scripts/ingest_genie3_video.py; scripts/find_genie3_video_candidates.py",
+      "notes": "Next-run assistant, manual 2s cadence, candidate discovery, and video ingest helpers exist for fallback collection."
+    },
+    {
+      "requirement": "genie3_mcts_videos_collected",
+      "status": "incomplete",
+      "evidence": "runs/*/genie3/video.mp4; manifests/genie3_postprocess_index.csv",
+      "notes": "0/10 Genie3 matched MCTS videos are present."
+    },
+    {
+      "requirement": "human_and_auto_evaluation_scaffold",
+      "status": "proved",
+      "evidence": "manifests/human_label_task_index.csv; manifests/human_label_summary.csv; manifests/paired_metric_table.csv; manifests/auto_label_requests.jsonl",
+      "notes": "Label sheets, label summary, paired metric table, and auto-label requests are generated."
+    }
+  ]
+}

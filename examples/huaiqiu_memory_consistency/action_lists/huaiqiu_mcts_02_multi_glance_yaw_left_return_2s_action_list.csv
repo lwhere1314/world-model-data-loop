@@ -1,0 +1,37 @@
+step,start_s,end_s,action,label,genie3_operator_instruction,target_visible_after,distance_after,yaw_after,lateral_after
+0,0.0,2.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+1,2.0,4.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+2,4.0,6.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+3,6.0,8.0,YAW_L,yaw left,drag/look left,False,0.0,-45.0,0.0
+4,8.0,10.0,HOLD,hold view,pause and keep the current view,False,0.0,-45.0,0.0
+5,10.0,12.0,HOLD,hold view,pause and keep the current view,False,0.0,-45.0,0.0
+6,12.0,14.0,HOLD,hold view,pause and keep the current view,False,0.0,-45.0,0.0
+7,14.0,16.0,YAW_R,yaw right,drag/look right,True,0.0,0.0,0.0
+8,16.0,18.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+9,18.0,20.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+10,20.0,22.0,BACK,move backward,press/hold backward,True,0.42,0.0,0.0
+11,22.0,24.0,BACK,move backward,press/hold backward,True,0.84,0.0,0.0
+12,24.0,26.0,BACK,move backward,press/hold backward,True,1.26,0.0,0.0
+13,26.0,28.0,BACK,move backward,press/hold backward,True,1.68,0.0,0.0
+14,28.0,30.0,YAW_L,yaw left,drag/look left,False,1.68,-45.0,0.0
+15,30.0,32.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+16,32.0,34.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+17,34.0,36.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+18,36.0,38.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+19,38.0,40.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+20,40.0,42.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+21,42.0,44.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+22,44.0,46.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+23,46.0,48.0,HOLD,hold view,pause and keep the current view,False,1.68,-45.0,0.0
+24,48.0,50.0,YAW_R,yaw right,drag/look right,True,1.68,0.0,0.0
+25,50.0,52.0,FWD,move forward,press/hold forward,True,1.26,0.0,0.0
+26,52.0,54.0,FWD,move forward,press/hold forward,True,0.84,0.0,0.0
+27,54.0,56.0,FWD,move forward,press/hold forward,True,0.42,0.0,0.0
+28,56.0,58.0,FWD,move forward,press/hold forward,True,0.0,0.0,0.0
+29,58.0,60.0,YAW_L,yaw left,drag/look left,False,0.0,-45.0,0.0
+30,60.0,62.0,YAW_R,yaw right,drag/look right,True,0.0,0.0,0.0
+31,62.0,64.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+32,64.0,66.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+33,66.0,68.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+34,68.0,70.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0
+35,70.0,72.0,HOLD,hold view,pause and keep the current view,True,0.0,0.0,0.0

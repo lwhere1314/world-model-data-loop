@@ -1,0 +1,11 @@
+requirement,status,evidence,notes
+complete_readme_and_plan,proved,README.md; COMPLETE_DATA_PLAN.md; BENCHMARK_DASHBOARD.md; DELIVERABLE_AUDIT.md; GENIE3_COLLECTION_RUNBOOK.md,Complete entry docs and delivery audit exist.
+huaiqiu_2s_action_lists,proved,action_lists/*_2s_action_list.csv,10/10 lists have 36 continuous 2s steps.
+mcts_10_memory_stress_protocols,proved,manifests/mcts_action_manifest.csv,"10/10 protocols meet duration, offscreen, revisit, and checkpoint constraints."
+matrix_game3_prompt_injection_branch,proved,matrix_game3_prompt_injected/; manifests/matrix_prompt_injection_manifest.csv,10/10 prompt-injected schedules are valid.
+matrix_game3_prompt_injection_rollouts,proved,runs/*/matrix_prompt_injected/video.mp4; manifests/matrix_prompt_injected_postprocess_index.csv,10/10 Matrix prompt-injected videos passed initial quality gate.
+matrix_game3_synthetic_rollouts,proved,runs/*/matrix_game3/video.mp4; manifests/matrix_game3_postprocess_index.csv,10/10 Matrix videos passed initial quality gate.
+genie3_same_effect_collection_package,proved,genie3_protocols/; runs/*/genie3/notes.md; runs/*/genie3/browser_replay_snippet.mjs; manifests/genie3_collection_queue.csv,10/10 Genie3 collection queue rows have required assets.
+manual_genie3_collection_helpers,proved,scripts/prepare_next_genie3_collection.py; scripts/run_genie3_action_timer.py; scripts/ingest_genie3_video.py; scripts/find_genie3_video_candidates.py,"Next-run assistant, manual 2s cadence, candidate discovery, and video ingest helpers exist for fallback collection."
+genie3_mcts_videos_collected,incomplete,runs/*/genie3/video.mp4; manifests/genie3_postprocess_index.csv,0/10 Genie3 matched MCTS videos are present.
+human_and_auto_evaluation_scaffold,proved,manifests/human_label_task_index.csv; manifests/human_label_summary.csv; manifests/paired_metric_table.csv; manifests/auto_label_requests.jsonl,"Label sheets, label summary, paired metric table, and auto-label requests are generated."

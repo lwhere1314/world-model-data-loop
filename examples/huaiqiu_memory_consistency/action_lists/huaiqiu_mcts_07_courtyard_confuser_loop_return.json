@@ -1,0 +1,747 @@
+{
+  "protocol_id": "huaiqiu_mcts_07_courtyard_confuser_loop_return",
+  "protocol_family": "courtyard_confuser_loop_return",
+  "target": "槐楸中文招牌",
+  "sampler": "lightweight_mcts_rollout_v0",
+  "rng_seed": 20260701,
+  "step_seconds": 2.0,
+  "num_steps": 36,
+  "duration_s": 72.0,
+  "matrix_game3_fps": 17,
+  "frames_per_step": 34,
+  "score_meta": {
+    "score": 230.7,
+    "initial_visible_steps": 3,
+    "final_visible_steps": 4,
+    "first_offscreen_step": 5,
+    "last_offscreen_step": 24,
+    "offscreen_gap_s": 54.0,
+    "final_state": {
+      "distance": 0.0,
+      "yaw": 0.0,
+      "lateral": -0.0
+    },
+    "revisit_error": 0.0,
+    "transitions": 12,
+    "yaw_balance": 0,
+    "move_balance": 0,
+    "visible_runs": 3,
+    "offscreen_runs": 2,
+    "longest_offscreen_run_s": 22.0,
+    "checkpoint_visible_step_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      9,
+      10,
+      11,
+      12,
+      13,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ]
+  },
+  "intended_test": {
+    "initial_phase": "observe the Huaiqiu sign and storefront",
+    "mid_checkpoints": "re-observe the same sign before introducing longer distractor/offscreen intervals",
+    "memory_phase": "make the sign offscreen or confusable with nearby storefronts for a long interval",
+    "return_phase": "return to a comparable storefront view near the end"
+  },
+  "steps": [
+    {
+      "step": 0,
+      "start_s": 0.0,
+      "end_s": 2.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 1,
+      "start_s": 2.0,
+      "end_s": 4.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 2,
+      "start_s": 4.0,
+      "end_s": 6.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 3,
+      "start_s": 6.0,
+      "end_s": 8.0,
+      "action": "BACK",
+      "label": "move backward",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "S"
+      },
+      "genie3_operator_instruction": "press/hold backward",
+      "abstract_state_after": {
+        "distance": 0.42,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 4,
+      "start_s": 8.0,
+      "end_s": 10.0,
+      "action": "BACK",
+      "label": "move backward",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "S"
+      },
+      "genie3_operator_instruction": "press/hold backward",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 5,
+      "start_s": 10.0,
+      "end_s": 12.0,
+      "action": "YAW_R",
+      "label": "yaw right",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "L",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "drag/look right",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": 0.0,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 6,
+      "start_s": 12.0,
+      "end_s": 14.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": 0.0,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 7,
+      "start_s": 14.0,
+      "end_s": 16.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": 0.0,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 8,
+      "start_s": 16.0,
+      "end_s": 18.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": 0.0,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 9,
+      "start_s": 18.0,
+      "end_s": 20.0,
+      "action": "YAW_L",
+      "label": "yaw left",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "J",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "drag/look left",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 10,
+      "start_s": 20.0,
+      "end_s": 22.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 11,
+      "start_s": 22.0,
+      "end_s": 24.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": 0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 12,
+      "start_s": 24.0,
+      "end_s": 26.0,
+      "action": "LEFT",
+      "label": "strafe left",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "A"
+      },
+      "genie3_operator_instruction": "press/hold left",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -0.42,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 13,
+      "start_s": 26.0,
+      "end_s": 28.0,
+      "action": "LEFT",
+      "label": "strafe left",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "A"
+      },
+      "genie3_operator_instruction": "press/hold left",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -0.84,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 14,
+      "start_s": 28.0,
+      "end_s": 30.0,
+      "action": "LEFT",
+      "label": "strafe left",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "A"
+      },
+      "genie3_operator_instruction": "press/hold left",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 15,
+      "start_s": 30.0,
+      "end_s": 32.0,
+      "action": "YAW_R",
+      "label": "yaw right",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "L",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "drag/look right",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 16,
+      "start_s": 32.0,
+      "end_s": 34.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 17,
+      "start_s": 34.0,
+      "end_s": 36.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 18,
+      "start_s": 36.0,
+      "end_s": 38.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 19,
+      "start_s": 38.0,
+      "end_s": 40.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 20,
+      "start_s": 40.0,
+      "end_s": 42.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 21,
+      "start_s": 42.0,
+      "end_s": 44.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 22,
+      "start_s": 44.0,
+      "end_s": 46.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 23,
+      "start_s": 46.0,
+      "end_s": 48.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 45.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 24,
+      "start_s": 48.0,
+      "end_s": 50.0,
+      "action": "YAW_L",
+      "label": "yaw left",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "J",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "drag/look left",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -1.26,
+        "target_visible": false
+      }
+    },
+    {
+      "step": 25,
+      "start_s": 50.0,
+      "end_s": 52.0,
+      "action": "RIGHT",
+      "label": "strafe right",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "D"
+      },
+      "genie3_operator_instruction": "press/hold right",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -0.84,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 26,
+      "start_s": 52.0,
+      "end_s": 54.0,
+      "action": "RIGHT",
+      "label": "strafe right",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "D"
+      },
+      "genie3_operator_instruction": "press/hold right",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -0.42,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 27,
+      "start_s": 54.0,
+      "end_s": 56.0,
+      "action": "RIGHT",
+      "label": "strafe right",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "D"
+      },
+      "genie3_operator_instruction": "press/hold right",
+      "abstract_state_after": {
+        "distance": 0.84,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 28,
+      "start_s": 56.0,
+      "end_s": 58.0,
+      "action": "FWD",
+      "label": "move forward",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "W"
+      },
+      "genie3_operator_instruction": "press/hold forward",
+      "abstract_state_after": {
+        "distance": 0.42,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 29,
+      "start_s": 58.0,
+      "end_s": 60.0,
+      "action": "FWD",
+      "label": "move forward",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "W"
+      },
+      "genie3_operator_instruction": "press/hold forward",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 30,
+      "start_s": 60.0,
+      "end_s": 62.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 31,
+      "start_s": 62.0,
+      "end_s": 64.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 32,
+      "start_s": 64.0,
+      "end_s": 66.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 33,
+      "start_s": 66.0,
+      "end_s": 68.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 34,
+      "start_s": 68.0,
+      "end_s": 70.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    },
+    {
+      "step": 35,
+      "start_s": 70.0,
+      "end_s": 72.0,
+      "action": "HOLD",
+      "label": "hold view",
+      "matrix_game3": {
+        "frames": 34,
+        "mouse": "U",
+        "key": "Q"
+      },
+      "genie3_operator_instruction": "pause and keep the current view",
+      "abstract_state_after": {
+        "distance": 0.0,
+        "yaw": 0.0,
+        "lateral": -0.0,
+        "target_visible": true
+      }
+    }
+  ]
+}

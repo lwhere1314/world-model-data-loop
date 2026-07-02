@@ -1,6 +1,6 @@
 # 03 Evaluation
 
-Evaluation 的核心顺序：
+Evaluation 的核心顺序很简单：
 
 ```text
 先判断实验是否成立
@@ -8,7 +8,7 @@ Evaluation 的核心顺序：
 最后判断世界状态是否正确
 ```
 
-如果 action 都没执行，就不能直接说模型“记忆失败”。那叫控制失败或采集失败。
+如果 action 都没执行，就不能直接说模型“记忆失败”。那叫控制失败或采集失败，需要在 curation 阶段先拦下来。
 
 ## 三层 Gate
 
@@ -141,6 +141,6 @@ Evaluation 不只是打分，它也会反向驱动 curation：
 相同任务高低对比 -> pairwise training data
 ```
 
-## 最关键的面试表达
+## 面试表达
 
 > 我会先把 evaluation 拆成 gate。第一道 gate 验证视频有效，第二道 gate 验证 action-following，第三道才评价 memory consistency 和 physical plausibility。这样可以避免把控制失败误判成世界模型失败，也可以把失败样本转成可用的训练信号。

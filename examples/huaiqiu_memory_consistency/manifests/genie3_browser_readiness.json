@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-07-02T04:40:31",
+  "chrome_tab_count": 57,
+  "status": "google_signin_tab_present",
+  "next_action": "finish_google_login_or_open_project_genie",
+  "project_genie_tabs": [],
+  "google_signin_tabs": [
+    {
+      "title": "Sign in - Google Accounts",
+      "url": "https://accounts.google.com/v3/signin/accountchooser"
+    }
+  ],
+  "read_error": "",
+  "privacy_note": "URLs are sanitized to remove query strings and fragments."
+}

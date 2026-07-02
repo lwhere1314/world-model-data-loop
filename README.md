@@ -2,11 +2,27 @@
 
 ## Overview
 
-我负责的不是单纯数据采集，而是把 world model 的失败模式产品化成可生产、可筛选、可评估的数据闭环。第一步由人给 few-shot，定义什么叫同一物体、同一空间、动作后果正确。然后让 agent 根据这些 few-shot 生成探索策略，自动采集长时序 rollout。curation 阶段先检查视频有效性和 action-following，再挖 hard negative。evaluation 阶段按帧、片段、轨迹打分，最后把结果转成 preference pairs、reward data 和下一轮主动采样策略。
+这个仓库记录的是我把一次 world model 评估问题往前补成数据闭环的过程。
+
+原始问题很具体：模型看到一块写着 `槐楸` 的中文招牌，移动、转头、离屏，再回来以后，它还记不记得这是同一块招牌？这本来是一个纯 evaluation 问题。但如果要把它变成可持续迭代的数据工作，只做最后打分还不够，前面还要补两件事：怎么稳定地产生这类长时序样本，以及怎么在进入正式评测前先筛掉无效视频、控制失败和低价值路径。
+
+所以我的版本是在原 benchmark 前面加了 data production 和 curation。人先给少量 few-shot，定义什么叫同一物体、同一空间、动作后果正确；agent 再按这些例子生成探索路径，批量采集长时序 rollout；curation 先检查视频有效性和 action-following，再挖 hard negative；最后 evaluation 才按帧、片段、轨迹评分，并把结果整理成 preference pairs、reward data 和下一轮主动采样策略。
+
+## Motivation
+
+现在很多 world model 生成的视频看起来是连贯的，但它们不一定真的保住了世界状态。文字会漂，物体身份会换，门窗和招牌的相对位置会变，回到的也可能只是“像原来那家店”的另一个场景。
+
+这类问题靠普通视频质量指标很难看出来。FVD、LPIPS 可以告诉我们画面是否像视频、是否有感知质量，但不一定能回答“这是不是同一个物体”“这个动作之后的空间关系是否合理”。因此需要把人类一眼能看出的空间/物理错误，拆成可标注、可筛选、可复验的样本和指标。
+
+## Online / Source Links
+
+- 原始 `槐楸` 记忆一致性实验入口保存在 [examples/huaiqiu_memory_consistency/source_notes/original_memory_benchmark_README.md](examples/huaiqiu_memory_consistency/source_notes/original_memory_benchmark_README.md)。
+- Genie3 槐楸项目链接：[Project Genie](https://labs.google/fx/projectgenie/zh/tools/projectgenie/9cc50806-81da-4931-969e-07fe8069113a)。
+- 当前仓库里的公开示例：[examples/huaiqiu_memory_consistency](examples/huaiqiu_memory_consistency/)。
 
 ## 一句话版本
 
-我们要做的是一个面向 world model / video foundation model 的数据生产与评估闭环：
+具体闭环长这样：
 
 ```text
 人类 few-shot 定义“什么算对/错”
@@ -58,6 +74,9 @@ flowchart TD
 
 - [schemas.md](schemas.md)
   给出 manifest、label、evaluation request 的字段模板。
+
+- [examples/huaiqiu_memory_consistency](examples/huaiqiu_memory_consistency/)
+  放入 `槐楸` 实验的公开材料：原始 reference、评估表、prompt、action list、Matrix-Game CSV、Genie3 操作协议、manifest、action-following 评估结果和 contact sheet。原始 mp4 体积较大，没有放进这个轻量仓库。
 
 ## 最小闭环
 

@@ -1,0 +1,11 @@
+protocol_id,paired_ready,next_action,matrix_video_exists,matrix_label_status,matrix_pass_fail,matrix_memory_consistency_score,matrix_physical_plausibility_score,matrix_final_physical_spatial_score_mean,genie3_video_exists,genie3_label_status,genie3_pass_fail,genie3_memory_consistency_score,genie3_physical_plausibility_score,genie3_final_physical_spatial_score_mean,matrix_minus_genie_memory,matrix_minus_genie_physical
+huaiqiu_mcts_01_multi_glance_yaw_right_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_02_multi_glance_yaw_left_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_03_retreat_multi_glance_right_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_04_retreat_multi_glance_left_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_05_lateral_left_multi_confuser_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_06_lateral_right_multi_confuser_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_07_courtyard_confuser_loop_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_08_interior_peek_multi_return,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_09_double_revisit_with_wrong_store,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,
+huaiqiu_mcts_10_hard_long_offscreen_multi_revisit,False,collect_genie3_video,True,needs_labels,,,,,False,missing_video,,,,,,

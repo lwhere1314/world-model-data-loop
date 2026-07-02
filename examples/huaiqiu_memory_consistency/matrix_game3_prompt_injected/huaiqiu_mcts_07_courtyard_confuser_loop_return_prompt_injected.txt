@@ -1,0 +1,57 @@
+Matrix-Game 3.0 prompt-injected Huaiqiu memory-consistency protocol.
+
+Base scene and evaluation target:
+
+A first-person interactive memory consistency test in front of a real Beijing storefront. The target is the glowing Chinese sign reading 槐楸. The camera should see the target sign multiple times, then leave it behind or pass visually similar storefronts, and finally return to the same storefront. Keep the Chinese text, storefront identity, door/window layout, relative sign placement, and street geometry stable. The camera motion is provided by an external action controller; do not replace the target storefront with a similar shop during turn-away, movement, or revisit phases.
+
+Evaluation target: when the camera revisits the storefront near the end, the sign should still be the same 槐楸 sign, readable, and geometrically aligned with the storefront, door, and street context.
+
+Action schedule to simulate inside the generated video:
+
+- 0.0-2.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=0.0
+- 2.0-4.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=0.0
+- 4.0-6.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=0.0
+- 6.0-8.0s: BACK (move backward); expected target_visible_after=True; distance=0.42; yaw=0.0; lateral=0.0
+- 8.0-10.0s: BACK (move backward); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=0.0
+- 10.0-12.0s: YAW_R (yaw right); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=0.0
+- 12.0-14.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=0.0
+- 14.0-16.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=0.0
+- 16.0-18.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=0.0
+- 18.0-20.0s: YAW_L (yaw left); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=0.0
+- 20.0-22.0s: HOLD (hold view); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=0.0
+- 22.0-24.0s: HOLD (hold view); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=0.0
+- 24.0-26.0s: LEFT (strafe left); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=-0.42
+- 26.0-28.0s: LEFT (strafe left); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=-0.84
+- 28.0-30.0s: LEFT (strafe left); expected target_visible_after=False; distance=0.84; yaw=0.0; lateral=-1.26
+- 30.0-32.0s: YAW_R (yaw right); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 32.0-34.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 34.0-36.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 36.0-38.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 38.0-40.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 40.0-42.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 42.0-44.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 44.0-46.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 46.0-48.0s: HOLD (hold view); expected target_visible_after=False; distance=0.84; yaw=45.0; lateral=-1.26
+- 48.0-50.0s: YAW_L (yaw left); expected target_visible_after=False; distance=0.84; yaw=0.0; lateral=-1.26
+- 50.0-52.0s: RIGHT (strafe right); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=-0.84
+- 52.0-54.0s: RIGHT (strafe right); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=-0.42
+- 54.0-56.0s: RIGHT (strafe right); expected target_visible_after=True; distance=0.84; yaw=0.0; lateral=-0.0
+- 56.0-58.0s: FWD (move forward); expected target_visible_after=True; distance=0.42; yaw=0.0; lateral=-0.0
+- 58.0-60.0s: FWD (move forward); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+- 60.0-62.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+- 62.0-64.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+- 64.0-66.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+- 66.0-68.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+- 68.0-70.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+- 70.0-72.0s: HOLD (hold view); expected target_visible_after=True; distance=0.0; yaw=0.0; lateral=-0.0
+
+Important constraints:
+
+- Treat the schedule as a 2-second cadence over a 72-second rollout.
+- Preserve one physical storefront instance across all revisits.
+- Do not silently replace the target with a visually similar storefront.
+- The final 62-72s window should revisit the same Huaiqiu sign when the action schedule says the target is visible.
+- The Chinese text should remain readable as 槐楸 when the target is visible.
+- Door/window/sign layout and street geometry should stay consistent with the initial observation.
+
+Protocol id: huaiqiu_mcts_07_courtyard_confuser_loop_return
