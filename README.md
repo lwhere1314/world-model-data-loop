@@ -1,9 +1,8 @@
 # 自动化数据闭环方案
 
-目标：把“自动化生产数据 -> curation -> evaluation -> 反哺训练”的小闭环讲清楚，尤其强调两件事：
+## Overview
 
-1. 数据不是简单抓取视频，而是自动化构造可控任务、可复现轨迹、可追溯元数据。
-2. evaluation 不是只看画质，而是让 agent 学会人类 few-shot 里的判断方式，像人一样主动探索、回看、制造干扰、验证物理空间一致性。
+我负责的不是单纯数据采集，而是把 world model 的失败模式产品化成可生产、可筛选、可评估的数据闭环。第一步由人给 few-shot，定义什么叫同一物体、同一空间、动作后果正确。然后让 agent 根据这些 few-shot 生成探索策略，自动采集长时序 rollout。curation 阶段先检查视频有效性和 action-following，再挖 hard negative。evaluation 阶段按帧、片段、轨迹打分，最后把结果转成 preference pairs、reward data 和下一轮主动采样策略。
 
 ## 一句话版本
 
@@ -42,22 +41,22 @@ flowchart TD
 
 ## 文件导览
 
-- [01_自动化数据生产.md](/Users/hugo/Documents/世界模型面试/自动化数据闭环方案/01_自动化数据生产.md)
+- [01_自动化数据生产.md](01_自动化数据生产.md)
   讲怎么自动化生成任务、prompt、action、rollout、元数据。
 
-- [02_curation.md](/Users/hugo/Documents/世界模型面试/自动化数据闭环方案/02_curation.md)
+- [02_curation.md](02_curation.md)
   讲数据进入训练或评测前怎么筛选、分层、去重、挖 hard negative。
 
-- [03_evaluation.md](/Users/hugo/Documents/世界模型面试/自动化数据闭环方案/03_evaluation.md)
+- [03_evaluation.md](03_evaluation.md)
   讲 action-following、memory consistency、physical plausibility 的评价层级。
 
-- [04_fewshot_agent_exploration.md](/Users/hugo/Documents/世界模型面试/自动化数据闭环方案/04_fewshot_agent_exploration.md)
+- [04_fewshot_agent_exploration.md](04_fewshot_agent_exploration.md)
   重点讲如何让 agent 根据人给的 few-shot 学会“类似人的探索”。
 
-- [05_协作与里程碑.md](/Users/hugo/Documents/世界模型面试/自动化数据闭环方案/05_协作与里程碑.md)
+- [05_协作与里程碑.md](05_协作与里程碑.md)
   讲 PM、算法、数据、平台、标注、评测 agent 怎么协作，以及第一阶段怎么落地。
 
-- [schemas.md](/Users/hugo/Documents/世界模型面试/自动化数据闭环方案/schemas.md)
+- [schemas.md](schemas.md)
   给出 manifest、label、evaluation request 的字段模板。
 
 ## 最小闭环
@@ -74,6 +73,4 @@ flowchart TD
 
 ## 面试表述
 
-可以这样讲：
-
-> 我负责的不是单纯数据采集，而是把 world model 的失败模式产品化成可生产、可筛选、可评估的数据闭环。第一步由人给 few-shot，定义什么叫同一物体、同一空间、动作后果正确。然后让 agent 根据这些 few-shot 生成探索策略，自动采集长时序 rollout。curation 阶段先检查视频有效性和 action-following，再挖 hard negative。evaluation 阶段按帧、片段、轨迹打分，最后把结果转成 preference pairs、reward data 和下一轮主动采样策略。
+面试时可以直接从开头的 Overview 切入，再按“few-shot 定义标准、agent 生产数据、curation 过滤和挖负例、evaluation 产出训练信号”这个顺序展开。
