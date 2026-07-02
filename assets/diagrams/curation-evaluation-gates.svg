@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Curation and evaluation gates</title>
+  <desc id="desc">A staged gate diagram showing video validity, action following, memory scoring, and release artifacts.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfdff; }
+      .gate { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+      .gate-blue { fill: #eff6ff; stroke: #93c5fd; stroke-width: 1.5; }
+      .gate-orange { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; }
+      .gate-green { fill: #ecfdf5; stroke: #86efac; stroke-width: 1.5; }
+      .label { font: 700 21px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .small { font: 500 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .tiny { font: 700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; letter-spacing: .06em; }
+      .arrow { fill: none; stroke: #2563eb; stroke-width: 2.4; marker-end: url(#arrow); }
+      .reject { fill: none; stroke: #dc2626; stroke-width: 2; stroke-dasharray: 6 6; marker-end: url(#rejectArrow); }
+      .rejectText { font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #991b1b; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="rejectArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="430"/>
+  <text x="64" y="58" class="tiny">CURATION BEFORE CLAIMS</text>
+  <text x="64" y="91" class="label">Separate collection failure from world-model failure</text>
+
+  <rect class="gate" x="65" y="155" width="190" height="120" rx="16"/>
+  <text x="90" y="194" class="label">Raw rollout</text>
+  <text x="90" y="226" class="small">video</text>
+  <text x="90" y="250" class="small">prompt</text>
+  <text x="90" y="274" class="small">actions + metadata</text>
+
+  <rect class="gate-blue" x="315" y="155" width="200" height="120" rx="16"/>
+  <text x="340" y="194" class="label">Gate 1</text>
+  <text x="340" y="226" class="small">Video opens</text>
+  <text x="340" y="250" class="small">Target visible at start</text>
+  <text x="340" y="274" class="small">No texture collapse</text>
+
+  <rect class="gate-orange" x="575" y="155" width="220" height="120" rx="16"/>
+  <text x="600" y="194" class="label">Gate 2</text>
+  <text x="600" y="226" class="small">HOLD stays low-motion</text>
+  <text x="600" y="250" class="small">MOVE changes view</text>
+  <text x="600" y="274" class="small">Motion proxy audit</text>
+
+  <rect class="gate" x="855" y="155" width="220" height="120" rx="16"/>
+  <text x="880" y="194" class="label">World-state score</text>
+  <text x="880" y="226" class="small">Sign text</text>
+  <text x="880" y="250" class="small">Storefront identity</text>
+  <text x="880" y="274" class="small">Layout consistency</text>
+
+  <rect class="gate-green" x="855" y="320" width="220" height="68" rx="16"/>
+  <text x="880" y="359" class="label">Release artifacts</text>
+  <text x="880" y="382" class="small">tables + sheets + notes</text>
+
+  <path class="arrow" d="M 255 215 H 305"/>
+  <path class="arrow" d="M 515 215 H 565"/>
+  <path class="arrow" d="M 795 215 H 845"/>
+  <path class="arrow" d="M 965 275 V 310"/>
+
+  <path class="reject" d="M 415 155 C 415 120 485 120 520 145"/>
+  <text x="470" y="128" class="rejectText">reject / recollect</text>
+
+  <path class="reject" d="M 685 155 C 685 108 770 108 815 145"/>
+  <text x="742" y="116" class="rejectText">mark as control failure</text>
+</svg>

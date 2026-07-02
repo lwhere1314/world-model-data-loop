@@ -10,20 +10,13 @@ This repository packages the v0.1.0 artifacts around that question. It is not a 
 
 ## Data Loop
 
-```mermaid
-flowchart LR
-  A["Human anchors<br/>reference image + failure modes"] --> B["Protocol design<br/>shared prompt + 2s action schedule"]
-  B --> C["Rollout collection<br/>Genie3 / Matrix-Game 3.0"]
-  C --> D["Curation gates<br/>video validity + action-following"]
-  D --> E["Evaluation<br/>text + identity + layout + memory"]
-  E --> F["Artifacts<br/>score sheets + manifests + contact sheets"]
-  E --> G["Next data<br/>hard negatives + revised protocols"]
-  G -.-> B
-```
+![World model data loop overview](assets/diagrams/data-loop-overview.svg)
 
 The key addition in v0.1.0 is the layer before final evaluation: shared prompts, controlled action schedules, rollout manifests, and action-following checks.
 
 ## v0.1.0 Artifact Package
+
+![v0.1.0 artifact package map](assets/diagrams/artifact-package.svg)
 
 | Layer | Included |
 | --- | --- |
@@ -35,6 +28,12 @@ The key addition in v0.1.0 is the layer before final evaluation: shared prompts,
 
 Raw videos are intentionally excluded from this lightweight repo. The committed materials are designed for fast inspection and reproducibility.
 
+## Curation and Evaluation Gates
+
+![Curation and evaluation gates](assets/diagrams/curation-evaluation-gates.svg)
+
+The release separates control failures from world-model failures. A rollout must first pass video validity and action-following checks before it is used for memory, identity, and layout scoring.
+
 ## Current Status
 
 - Matrix-Game 3.0 action-controlled rollouts have been generated for all 10 protocols and passed the initial quality gate.
@@ -44,6 +43,7 @@ Raw videos are intentionally excluded from this lightweight repo. The committed 
 
 ## Where to Look
 
+- [assets/diagrams](assets/diagrams/): SVG diagrams used to organize the data loop.
 - [examples/huaiqiu_memory_consistency](examples/huaiqiu_memory_consistency/): public Huaiqiu artifact package.
 - [examples/huaiqiu_memory_consistency/manifests/action_following_summary.csv](examples/huaiqiu_memory_consistency/manifests/action_following_summary.csv): action-following audit summary.
 - [examples/huaiqiu_memory_consistency/contact_sheets](examples/huaiqiu_memory_consistency/contact_sheets/): sampled-frame sheets for quick visual inspection.
