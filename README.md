@@ -1,52 +1,63 @@
 # World Model Data Loop
 
-This repository contains the public v0.1.0 artifact package for the Huaiqiu sign memory-consistency experiment.
+**From one concrete world-model failure case to a reproducible data-production, curation, and evaluation loop.**
 
-The experiment is built around a small but concrete failure mode: after a model observes a Chinese storefront sign reading `槐楸`, moves away, loses sight of it, and revisits the area, does it preserve the same sign, storefront identity, and local layout?
+## Motivation
 
-v0.1.0 is not a leaderboard. It packages the data-production and curation layer around the original evaluation so the experiment can be inspected, replayed, and extended.
+Interactive world models can generate coherent-looking video while failing to preserve persistent state. In this experiment, the target is a Chinese storefront sign reading `槐楸`. After the model moves away, loses sight of the sign, and revisits the area, the core question is whether it preserves the same sign, storefront identity, and local spatial layout.
 
-## v0.1.0 Scope
+This repository packages the v0.1.0 artifacts around that question. It is not a leaderboard; it is a compact data loop for making the experiment inspectable, replayable, and extensible.
 
-- Original Huaiqiu benchmark materials: reference image, score sheets, Genie3 evaluation notes, Matrix-Game 3.0 action-controlled evaluation, and comparison tables.
-- Ten 72-second revisit protocols at 2-second resolution, designed to stress offscreen memory, repeated revisits, and visually similar distractor storefronts.
-- Shared prompts, human-readable action lists, Genie3 operation notes, and Matrix-Game 3.0 action CSVs for each protocol.
-- Matrix-Game 3.0 action-controlled rollouts for all 10 protocols, represented here by contact sheets and manifests.
-- A prompt-injected Matrix-Game 3.0 control branch, used to test whether long action schedules can be followed when written only into the prompt.
-- Action-following audit results: mean motion match is `0.872` for the action-controlled branch and `0.540` for the prompt-injected branch.
+## Data Loop
 
-Raw videos are intentionally excluded from this lightweight repo. The committed artifacts are frames, contact sheets, manifests, protocols, and result tables.
+```mermaid
+flowchart LR
+  A["Human anchors<br/>reference image + failure modes"] --> B["Protocol design<br/>shared prompt + 2s action schedule"]
+  B --> C["Rollout collection<br/>Genie3 / Matrix-Game 3.0"]
+  C --> D["Curation gates<br/>video validity + action-following"]
+  D --> E["Evaluation<br/>text + identity + layout + memory"]
+  E --> F["Artifacts<br/>score sheets + manifests + contact sheets"]
+  E --> G["Next data<br/>hard negatives + revised protocols"]
+  G -.-> B
+```
+
+The key addition in v0.1.0 is the layer before final evaluation: shared prompts, controlled action schedules, rollout manifests, and action-following checks.
+
+## v0.1.0 Artifact Package
+
+| Layer | Included |
+| --- | --- |
+| Original benchmark | Reference image, score sheets, Genie3 notes, Matrix-Game 3.0 action-controlled evaluation, comparison tables |
+| Data production | Ten 72-second revisit protocols at 2-second resolution |
+| Control inputs | Shared prompts, human-readable action lists, Genie3 operation notes, Matrix-Game 3.0 action CSVs |
+| Curation | Video validity records, action-following audit, prompt-injected control branch |
+| Evaluation artifacts | Contact sheets, sampled frames, manifests, result tables |
+
+Raw videos are intentionally excluded from this lightweight repo. The committed materials are designed for fast inspection and reproducibility.
 
 ## Current Status
 
-The Matrix-Game 3.0 action-controlled branch has produced 10 usable rollouts and passed the initial quality gate. The prompt-injected branch is included as a weaker control condition.
+- Matrix-Game 3.0 action-controlled rollouts have been generated for all 10 protocols and passed the initial quality gate.
+- The prompt-injected Matrix-Game 3.0 branch is included as a weaker control condition.
+- Mean motion match is `0.872` for the action-controlled branch and `0.540` for the prompt-injected branch.
+- The matched 10-protocol Genie3 set is not complete yet, so this release should not be read as a strict Genie3 vs Matrix-Game 3.0 ranking.
 
-The Genie3 matched 10-protocol set is not complete yet, so this release should not be read as a strict Genie3 vs Matrix-Game 3.0 ranking. It is a v0.1.0 package for inspecting the benchmark design, action protocols, curation checks, and current Matrix-Game results.
+## Where to Look
 
-## Repository Layout
+- [examples/huaiqiu_memory_consistency](examples/huaiqiu_memory_consistency/): public Huaiqiu artifact package.
+- [examples/huaiqiu_memory_consistency/manifests/action_following_summary.csv](examples/huaiqiu_memory_consistency/manifests/action_following_summary.csv): action-following audit summary.
+- [examples/huaiqiu_memory_consistency/contact_sheets](examples/huaiqiu_memory_consistency/contact_sheets/): sampled-frame sheets for quick visual inspection.
+- [examples/huaiqiu_memory_consistency/source_notes/original_memory_benchmark_README.md](examples/huaiqiu_memory_consistency/source_notes/original_memory_benchmark_README.md): snapshot of the original benchmark README.
 
-- [examples/huaiqiu_memory_consistency](examples/huaiqiu_memory_consistency/)
-  - Public Huaiqiu artifact package: original evaluation materials, 10 long-horizon protocols, action-following results, and contact sheets.
+## Draft Notes
 
-- [01_自动化数据生产.md](01_自动化数据生产.md)
-  - Draft notes on automated data production.
+- [01_自动化数据生产.md](01_自动化数据生产.md): automated data production.
+- [02_curation.md](02_curation.md): validity checks, action-following checks, and hard-negative curation.
+- [03_evaluation.md](03_evaluation.md): action-following, memory consistency, and physical plausibility evaluation.
+- [04_fewshot_agent_exploration.md](04_fewshot_agent_exploration.md): using few-shot examples to constrain exploration paths.
+- [05_协作与里程碑.md](05_协作与里程碑.md): collaboration and next milestones.
+- [schemas.md](schemas.md): manifest, label, and evaluation request schemas.
 
-- [02_curation.md](02_curation.md)
-  - Draft notes on validity checks, action-following checks, and hard-negative curation.
-
-- [03_evaluation.md](03_evaluation.md)
-  - Draft notes on action-following, memory consistency, and physical plausibility evaluation.
-
-- [04_fewshot_agent_exploration.md](04_fewshot_agent_exploration.md)
-  - Draft notes on using few-shot examples to constrain exploration paths.
-
-- [05_协作与里程碑.md](05_协作与里程碑.md)
-  - Draft notes on collaboration and next milestones.
-
-- [schemas.md](schemas.md)
-  - Manifest, label, and evaluation request schemas.
-
-## External Links
+## External Link
 
 - Genie3 Huaiqiu project: [Project Genie](https://labs.google/fx/projectgenie/zh/tools/projectgenie/9cc50806-81da-4931-969e-07fe8069113a)
-- Original benchmark README snapshot: [examples/huaiqiu_memory_consistency/source_notes/original_memory_benchmark_README.md](examples/huaiqiu_memory_consistency/source_notes/original_memory_benchmark_README.md)
